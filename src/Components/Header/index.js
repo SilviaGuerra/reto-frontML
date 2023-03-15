@@ -8,6 +8,7 @@ import {
   Offcanvas,
   Button,
 } from "react-bootstrap";
+import Logo from "../../assets/Logo_ML.png";
 
 import "./styles.scss";
 
@@ -24,10 +25,12 @@ const Header = () => {
     //     </Col>
     //   </Row>
     // </Container>
-    <Container>
+    <Container fluid>
       <Row>
         <Navbar bg="light">
-          <Navbar.Brand href="#">Navbar Offcanvas</Navbar.Brand>
+          <Navbar.Brand href="#">
+            <img src={Logo} alt="Logo" width={"50%"} />
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-`} />
           <Navbar.Offcanvas
             id={`offcanvasNavbar-expand`}
