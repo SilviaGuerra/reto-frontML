@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Row, Col, Container, Breadcrumb } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+// import { fetchAllproducts } from "../../store/slices/busqueda";
 import Product from "../../assets/img-muestra.jpg";
 import Shipping from "../../assets/shipping.png";
 import "./styles.scss";
 
 const Body = () => {
+  // const dispatch = useDispatch();
+  const results = useSelector((state) => state);
+
+  console.log(results, "ree");
+
+  // useEffect(() => {
+  //   dispatch(fetchAllproducts());
+  // }, [dispatch]);
+
   return (
     <Container>
       <Breadcrumb>
