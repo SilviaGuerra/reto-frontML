@@ -26,11 +26,13 @@ const Body = () => {
                   <div className="body-cardProduct">
                     <Row>
                       <Col lg={{ span: 2 }}>
-                        <img
-                          src={element.thumbnail}
-                          alt="img-product"
-                          className="cardProduct-img"
-                        />
+                        <div className="cardProduct-img">
+                          <img
+                            src={element.thumbnail}
+                            alt="img-product"
+                            width={"100%"}
+                          />
+                        </div>
                       </Col>
                       <Col lg={{ span: 9 }} className="cardProduct-description">
                         <Row className="cardProduct-priceCity">
@@ -40,11 +42,17 @@ const Body = () => {
                               {element.price}
                             </span>
                             {element.shipping.free_shipping ? (
-                              <img src={Shipping} alt="envio gratis" />
+                              <img
+                                src={Shipping}
+                                alt="envio gratis"
+                                className="descriptionProduct-shipping"
+                              />
                             ) : null}
                           </Col>
                           <Col lg={{ span: 4, offset: 2 }}>
-                            <span>{element.address.state_name}</span>
+                            <span className="descriptionProduct-city">
+                              {element.address.state_name}
+                            </span>
                           </Col>
                         </Row>
                         <Row>
