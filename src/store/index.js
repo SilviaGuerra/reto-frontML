@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import resultsReducer from "./slices/busqueda";
+import meLiSlice from "./slices/busqueda";
 
 export const store = configureStore({
   reducer: {
-    busqueda: resultsReducer,
+    mercadoL: meLiSlice,
   },
 });

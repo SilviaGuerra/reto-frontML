@@ -1,12 +1,12 @@
 .body {
   &-container {
     background: #fff;
-    height: 80vh;
     padding: 16px;
+    margin-bottom: 20px;
   }
-  &-cardProduct {
-    border: 1px solid;
-  }
+  // &-cardProduct {
+  //   border: 1px solid;
+  // }
 }
 
 .cardProduct {

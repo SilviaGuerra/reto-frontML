@@ -7,27 +7,24 @@ import {
   Offcanvas,
   Button,
 } from "react-bootstrap";
-import axios from "axios";
+import { useDispatch } from "react-redux";
+import { fetchAllproducts } from "../../store/slices/busqueda";
 import Logo from "../../assets/Logo_ML.png";
 
 import "./styles.scss";
 
 const Header = () => {
   const [stateSearch, setSearch] = useState("");
+  const dispatch = useDispatch();
 
   const handleChangeSearch = (e) => {
     e.preventDefault();
     setSearch(e.target.value);
   };
 
-  const handleResults = async (e) => {
+  const handleResults = (e) => {
     e.preventDefault();
-    await axios
-      .get(`https://api.mercadolibre.com/sites/MLA/search?q=${stateSearch}`)
-      .then((response) => {
-        console.log(response, "Reeesponseeee");
-      })
-      .catch((error) => console.log(error, "error"));
+    dispatch(fetchAllproducts(stateSearch));
   };
 
   return (
