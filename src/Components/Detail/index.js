@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Breadcrumb, Row, Col } from "react-bootstrap";
+import { Container, Breadcrumb, Row, Col, Button } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 const Detail = () => {
@@ -41,7 +41,7 @@ const Detail = () => {
                 })
               : null}
           </Col>
-          <Col lg="4">
+          <Col lg="3">
             {results &&
             results.mercadoL &&
             results.mercadoL.results[0] &&
@@ -56,6 +56,9 @@ const Detail = () => {
                             {element.attributes[1].value_name} -{" "}
                             {element.available_quantity} vendidos
                           </span>
+                          <p>{element.title}</p>
+                          <p>$ {element.price}</p>
+                          <Button>Comprar</Button>
                         </section>
                       ) : null}
                       {/* <section>
@@ -67,6 +70,10 @@ const Detail = () => {
                 })
               : null}
           </Col>
+        </Row>
+        <Row>
+          <p>Descripción del producto</p>
+          <p>lorem dhsgfdjhsb sgfhjsdfb sgfjehsfb </p>
         </Row>
       </div>
     </Container>
