@@ -60,7 +60,7 @@ const Header = () => {
               <Form className="d-flex">
                 <Form.Control
                   type="search"
-                  placeholder="Search"
+                  placeholder="Nunca dejes de buscar"
                   className="me-2"
                   aria-label="Search"
                   onChange={handleChangeSearch}
