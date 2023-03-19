@@ -13,7 +13,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Body />} />
-        <Route path="/detalle" element={<Detail />} />
+        <Route path="/items" element={<Body />} />
+        <Route path="/items/:id" element={<Detail />} />
         {/* <Route path="*" element={<NotFound />} /> */}
         {/* {user && (
           <>

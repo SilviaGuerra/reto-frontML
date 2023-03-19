@@ -9,13 +9,16 @@ import {
 } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { fetchAllproducts } from "../../store/slices/busqueda";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/Logo_ML.png";
+import SearchIcon from "../../assets/icon_search.png";
 
 import "./styles.scss";
 
 const Header = () => {
   const [stateSearch, setSearch] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleChangeSearch = (e) => {
     e.preventDefault();
@@ -25,6 +28,7 @@ const Header = () => {
   const handleResults = (e) => {
     e.preventDefault();
     dispatch(fetchAllproducts(stateSearch));
+    navigate(`/items?search=${stateSearch}`);
   };
 
   return (
@@ -42,26 +46,19 @@ const Header = () => {
     <Container fluid>
       <Row>
         <Navbar bg="light">
-          <Navbar.Brand href="#">
-            <img src={Logo} alt="Logo" width={"50%"} />
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-`} />
           <Navbar.Offcanvas
             id={`offcanvasNavbar-expand`}
             aria-labelledby={`offcanvasNavbarLabel-expand`}
             placement="end"
           >
-            <Offcanvas.Header closeButton>
-              <Offcanvas.Title id={`offcanvasNavbarLabel-expand`}>
-                Offcanvas
-              </Offcanvas.Title>
-            </Offcanvas.Header>
             <Offcanvas.Body>
               <Form className="d-flex">
+                <Link to="/" className="navbar-brand">
+                  <img src={Logo} alt="Logo" width={"100%"} />
+                </Link>
                 <Form.Control
                   type="search"
                   placeholder="Nunca dejes de buscar"
-                  className="me-2"
                   aria-label="Search"
                   onChange={handleChangeSearch}
                 />
@@ -70,7 +67,7 @@ const Header = () => {
                   type="submit"
                   onClick={handleResults}
                 >
-                  Search
+                  <img src={SearchIcon} alt="icono búsqueda" />
                 </Button>
               </Form>
             </Offcanvas.Body>
