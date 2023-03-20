@@ -1,11 +1,22 @@
 import React from "react";
-import { Row, Col, Container, Breadcrumb } from "react-bootstrap";
+import { Container, Breadcrumb } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import Shipping from "../../assets/shipping.png";
+import CardProduct from "../CardProduct";
 import "./styles.scss";
 
 const Body = () => {
   const results = useSelector((state) => state);
+
+  const haveResults = (results) => {
+    return (
+      results &&
+      results.mercadoL &&
+      results.mercadoL.results[0] &&
+      results.mercadoL.results[0].mercadoL &&
+      results.mercadoL.results[0].mercadoL.results[0] &&
+      results.mercadoL.results[0].results !== "undefined"
+    );
+  };
   console.log(results, "ree");
 
   return (
@@ -16,66 +27,24 @@ const Body = () => {
         <Breadcrumb.Item active>Data</Breadcrumb.Item>
       </Breadcrumb>
       <div className="body-container">
-        {results &&
-        results.mercadoL &&
-        results.mercadoL.results[0] &&
-        results.mercadoL.results[0].results !== "undefined"
-          ? results.mercadoL.results[0].results.map((element) => {
-              return (
-                <>
-                  <div className="body-cardProduct">
-                    <Row>
-                      <Col lg={{ span: 2 }}>
-                        <div className="cardProduct-img">
-                          <img
-                            src={element.thumbnail}
-                            alt="img-product"
-                            width={"100%"}
-                          />
-                        </div>
-                      </Col>
-                      <Col lg={{ span: 9 }} className="cardProduct-description">
-                        <Row className="cardProduct-priceCity">
-                          <Col lg={{ span: 6 }}>
-                            <span className="descriptionProduct-price">
-                              {/* $ {element.installments.amount} */}${" "}
-                              {element.price}
-                            </span>
-                            {element.shipping.free_shipping ? (
-                              <img
-                                src={Shipping}
-                                alt="envio gratis"
-                                className="descriptionProduct-shipping"
-                              />
-                            ) : null}
-                          </Col>
-                          <Col lg={{ span: 4, offset: 2 }}>
-                            <span className="descriptionProduct-city">
-                              {element.address.state_name}
-                            </span>
-                          </Col>
-                        </Row>
-                        <Row>
-                          <Col lg={{ span: 4 }}>
-                            <p className="descriptionProduct-text">
-                              {element.title}
-                            </p>
-                          </Col>
-                        </Row>
-                      </Col>
-                      {/* <Col lg={{ span: 4 }} className="cardProduct-description">
-                    <p className="descriptionProduct-price">$ 1.980 </p>
-                    <p className="descriptionProduct-text">
-                      hkshfkdshfksdfjksfhj hkfskhfkshfdhskjfskjf jkhdksahd
-                    </p>
-                  </Col>
-                  <Col lg={{ span: 4, offset: 2 }}>Mendoza</Col> */}
-                    </Row>
-                  </div>
-                  <hr />
-                </>
-              );
-            })
+        {haveResults(results)
+          ? results.mercadoL.results[0].mercadoL.results[0].results.map(
+              (element) => {
+                return (
+                  <>
+                    <CardProduct
+                      id={element.id}
+                      thumbnail={element.thumbnail}
+                      price={element.price}
+                      shipping={element.shipping}
+                      city={element.address.state_name}
+                      titleProduct={element.title}
+                    />
+                    <hr />
+                  </>
+                );
+              }
+            )
           : null}
       </div>
     </Container>
