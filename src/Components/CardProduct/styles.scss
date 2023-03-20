@@ -24,6 +24,7 @@
   }
   &-text {
     font-size: 18px;
+    padding: 0 !important;
   }
   &-city {
     font-size: 12px;
@@ -45,5 +46,5 @@
 }
 
 .btn {
-  text-align: inherit;
+  text-align: inherit !important;
 }

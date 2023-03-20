@@ -17,14 +17,18 @@ const CardProduct = (props) => {
     <>
       <section className="body-cardProduct">
         <Row>
-          <Col lg={{ span: 2 }}>
+          <Col md={{ span: 3 }} lg={{ span: 2 }}>
             <div className="cardProduct-img">
               <img src={props.thumbnail} alt="img-product" width={"100%"} />
             </div>
           </Col>
-          <Col lg={{ span: 9 }} className="cardProduct-description">
+          <Col
+            md={{ span: 8 }}
+            lg={{ span: 9 }}
+            className="cardProduct-description"
+          >
             <Row className="cardProduct-priceCity">
-              <Col lg={{ span: 6 }}>
+              <Col lg={{ span: 4 }}>
                 <span className="descriptionProduct-price">
                   $ {props.price}
                 </span>
