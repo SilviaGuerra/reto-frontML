@@ -1,8 +1,7 @@
 import React from "react";
 import { Row, Col, Button } from "react-bootstrap";
 import Shipping from "../../assets/shipping.png";
-import { Link, useNavigate } from "react-router-dom";
-// import Details from "../Detail";
+import { useNavigate } from "react-router-dom";
 
 import "./styles.scss";
 
@@ -17,18 +16,14 @@ const CardProduct = (props) => {
     <>
       <section className="body-cardProduct">
         <Row>
-          <Col md={{ span: 3 }} lg={{ span: 2 }}>
+          <Col xs={12} md={4} lg={3} xl={2}>
             <div className="cardProduct-img">
               <img src={props.thumbnail} alt="img-product" width={"100%"} />
             </div>
           </Col>
-          <Col
-            md={{ span: 8 }}
-            lg={{ span: 9 }}
-            className="cardProduct-description"
-          >
+          <Col xs={12} md={8} lg={8} className="cardProduct-description">
             <Row className="cardProduct-priceCity">
-              <Col lg={{ span: 4 }}>
+              <Col lg={{ span: 4 }} className="cardProduct-price">
                 <span className="descriptionProduct-price">
                   $ {props.price}
                 </span>
@@ -45,7 +40,7 @@ const CardProduct = (props) => {
               </Col>
             </Row>
             <Row>
-              <Col lg={{ span: 4 }}>
+              <Col lg={{ span: 6 }}>
                 <Button
                   variant="link"
                   className="descriptionProduct-text"

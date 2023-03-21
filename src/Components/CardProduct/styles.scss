@@ -1,37 +1,35 @@
-// .body {
-//   &-cardProduct {
-//     border: 1px solid;
-//   }
-// }
-
 .cardProduct {
   &-img {
-    width: 180px;
-    border-radius: 4px;
-  }
-  &-description {
-    padding-left: 23px;
+    width: 11.25rem;
+    border-radius: 0.25rem;
   }
   &-priceCity {
     display: flex;
     align-items: flex-end;
   }
+  &-price {
+    margin-top: 1rem;
+  }
 }
 
 .descriptionProduct {
   &-price {
-    font-size: 24px;
+    font-size: 1.5rem;
+  }
+  &-description {
+    padding-left: inherit;
   }
   &-text {
-    font-size: 18px;
+    font-size: 1.125rem;
     padding: 0 !important;
+    margin-top: 1rem;
   }
   &-city {
-    font-size: 12px;
+    font-size: 0.75rem;
     color: #999;
   }
   &-shipping {
-    width: 4%;
+    width: 8%;
     margin-left: 2%;
   }
 }
@@ -47,4 +45,13 @@
 
 .btn {
   text-align: inherit !important;
+}
+
+/** Responsive **/
+@media (min-width: 1020px) {
+  .cardProduct {
+    &-description {
+      padding-left: 1.4375rem;
+    }
+  }
 }
