@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Breadcrumb } from "react-bootstrap";
 import { useSelector } from "react-redux";
+
 import CardProduct from "../CardProduct";
 import "./styles.scss";
 
@@ -12,14 +13,13 @@ const Body = () => {
       results && results.mercadoL && results.mercadoL.results[0] !== "undefined"
     );
   };
-  console.log(results, "ree");
 
   return (
     <Container>
       <Breadcrumb>
-        <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-        <Breadcrumb.Item href="/"></Breadcrumb.Item>
-        {/* <Breadcrumb.Item active>Data</Breadcrumb.Item> */}
+        <Breadcrumb.Item href="/" className="breadcrumb-container">
+          Inicio
+        </Breadcrumb.Item>
       </Breadcrumb>
       <div className="body-container">
         {haveResults(results)

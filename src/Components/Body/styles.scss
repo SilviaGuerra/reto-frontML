@@ -2,7 +2,17 @@
   &-container {
     background: #fff;
     min-height: 83vh;
-    padding: 16px;
-    margin-bottom: 20px;
+    padding: 1rem;
+    margin-bottom: 1.25rem;
+  }
+}
+
+.breadcrumb {
+  &-container {
+    padding-top: 1rem;
+  }
+  &-container > a {
+    color: #666;
+    text-decoration: none;
   }
 }
