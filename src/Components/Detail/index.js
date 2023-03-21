@@ -20,9 +20,9 @@ const Detail = () => {
         <Breadcrumb.Item href="/" className="breadcrumb-container">
           Inicio
         </Breadcrumb.Item>
-        <Breadcrumb.Item href="/" className="breadcrumb-container">
+        {/* <Breadcrumb.Item href="/" className="breadcrumb-container">
           Atrás
-        </Breadcrumb.Item>
+        </Breadcrumb.Item> */}
       </Breadcrumb>
       <section className="body-container">
         <>
