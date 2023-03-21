@@ -1,32 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Breadcrumb, Row, Col, Button } from "react-bootstrap";
-import { useSelector } from "react-redux";
-// import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchItemDetails } from "../../store/slices/busqueda";
 import { useParams } from "react-router-dom";
 
-const Detail = (props) => {
-  const results = useSelector((state) => state);
+const Detail = () => {
+  const details = useSelector((state) => state.mercadoL.details);
+  const dispatch = useDispatch();
   let params = useParams();
-  const compareResults = () => {
-    return results &&
-      results.mercadoL &&
-      results.mercadoL.results[0] &&
-      results.mercadoL.results[0].mercadoL &&
-      results.mercadoL.results[0].mercadoL.results[0] &&
-      results.mercadoL.results[0].mercadoL.results[0].results !== "undefined"
-      ? results.mercadoL.results[0].mercadoL.results[0].results.find((el) => {
-          return console.log("MLA1314445322", "eeeel");
-        })
-      : console.log("Sin id");
-  };
 
-  console.log(compareResults);
-  // const navigate = useNavigate();
+  useEffect(() => {
+    dispatch(fetchItemDetails(params.id));
+  }, [dispatch, params.id]);
 
-  // const handleRedirect = () => {
-  //   return navigate(`/items/${props.id}`);
-  // };
-  // console.log(results);
+  // console.log(details.price, details.price.amount);
   return (
     <Container>
       <Breadcrumb>
@@ -34,77 +21,42 @@ const Detail = (props) => {
         <Breadcrumb.Item active>Library</Breadcrumb.Item>
         <Breadcrumb.Item active>Data</Breadcrumb.Item>
       </Breadcrumb>
-      <div className="body-container">
-        <Row>
-          <Col lg="8">
-            {
-              // results &&
-              // results.mercadoL &&
-              // results.mercadoL.results[0] &&
-              // results.mercadoL.results[0].results !== "undefined"
-              // ? results.mercadoL.results[0].results.map((element) => {
-              // results.mercadoL.results[0].mercadoL.results[0].results.map(
-              //   (element) => {
-              //     return (
-              //       <>
-              //         {/* {console.log(element.id)} */}
-              //         {element.id === "MLA1368539200" ? (
-              //           <section className="detail-img">
-              //             <img
-              //               src={element.thumbnail}
-              //               alt="imagen detalle"
-              //               width={"100%"}
-              //             />
-              //           </section>
-              //         ) : null}
-              //         {/* <section>
-              //           jfjfj
-              //           <img src={element[0].thumbnail} alt="imagen detalle" />
-              //         </section> */}
-              //       </>
-              //     );
-              //   }
-              // )
-              // : null
-            }
-          </Col>
-          <Col lg="3">
-            {/* {
-            results &&
-            results.mercadoL &&
-            results.mercadoL.results[0] &&
-            results.mercadoL.results[0].results !== "undefined"
-              ? results.mercadoL.results[0].results.map((element) => { */}
-            {/* return (
-                    <> */}
-            {/* {console.log(element.id)} */}
-            {/* {element.id === "MLA1368539200" ? (
-                        <section className="detail-information">
-                          <span>
-                            {element.attributes[1].value_name} -{" "}
-                            {element.available_quantity} vendidos
-                          </span>
-                          <p>{element.title}</p>
-                          <p>$ {element.price}</p>
-                          <Button>Comprar</Button>
-                        </section>
-                      ) : null}
-                      {/* <section>
-                        jfjfj
-                        <img src={element[0].thumbnail} alt="imagen detalle" />
-                      </section> */}
-            {/* </>
-                  );
-                })
-              : null} */}{" "}
-            */
-          </Col>
-        </Row>
-        <Row>
-          <p>Descripción del producto</p>
-          <p>lorem dhsgfdjhsb sgfhjsdfb sgfjehsfb </p>
-        </Row>
-      </div>
+      <section className="body-container">
+        <>
+          <Row>
+            <Col lg="8">
+              <section className="detail-img">
+                <img
+                  src={details.picture}
+                  alt="imagen detalle"
+                  width={"100%"}
+                />
+              </section>
+            </Col>
+            <Col lg="3">
+              <section className="detail-information">
+                <span>
+                  {details.condition} - {details.sold_quantity} vendidos
+                </span>
+                <p>{details.title}</p>
+                <p>
+                  ${" "}
+                  {details &&
+                  details.price &&
+                  details.price.amount !== "undefined"
+                    ? details.price.amount
+                    : 0}
+                </p>
+                <Button>Comprar</Button>
+              </section>
+            </Col>
+          </Row>
+          <Row>
+            <p>Descripción del producto</p>
+            <p>{details.description}</p>
+          </Row>
+        </>
+      </section>
     </Container>
   );
 };
