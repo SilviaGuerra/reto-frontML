@@ -12,8 +12,9 @@ Del lado del servidor se usó Express para cambiar la estructura de la API y as�
 ## Cliente
 
 Se uso sass para los estilos y el sitio es responsive.
-También se uso react-redux para el manejo del estado y así poder utilizar los datos de una manera más eficiente.
-Se agregó la tipografía `proxima_nova` que descargué de DaFont.
+También se uso react-redux y redux toolkit para el manejo del estado y así poder utilizar los datos de una manera más eficiente.
+Se agregó la tipografía `proxima_nova` que descargué de DaFont. Y me ayudé de bootstrap para el grid, la barra de búsqueda y botones (por nombrar algunos ejemplos).
+Utilicé react-router-dom para redirigir entre páginas, así como axios para la petición fetch.
 Se puede ver una vista previa en [https://ml-silviag.netlify.app/](https://ml-silviag.netlify.app/) 
 
 ## Servidor
