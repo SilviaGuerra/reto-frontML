@@ -9,12 +9,6 @@ import "./styles.scss";
 const Body = () => {
   const results = useSelector((state) => state);
 
-  const haveResults = (results) => {
-    return (
-      results && results.mercadoL && results.mercadoL.results[0] !== "undefined"
-    );
-  };
-
   return (
     <Container>
       <Breadcrumb>
@@ -23,7 +17,19 @@ const Body = () => {
         </Breadcrumb.Item>
       </Breadcrumb>
       <section className="body-container">
-        {haveResults(results) &&
+        {results.mercadoL.results.length === 0 ? (
+          <section className="body-noresults">
+            <div className="body-noresults_img">
+              <img src={NoResults} alt="No hay resultados" width={"100%"} />
+            </div>
+            <div>
+              <p className="body-noresults_text">
+                No hay resultados para tu búsqueda.
+              </p>
+              <p className="body-noresults_text">Intenta con otra palabra</p>
+            </div>
+          </section>
+        ) : (
           results.mercadoL.results.map((element) => {
             return (
               <>
@@ -38,18 +44,8 @@ const Body = () => {
                 <hr />
               </>
             );
-          })}
-        <section className="body-noresults">
-          <div className="body-noresults_img">
-            <img src={NoResults} alt="No hay resultados" width={"100%"} />
-          </div>
-          <div>
-            <p className="body-noresults_text">
-              No hay resultados para tu búsqueda.
-            </p>
-            <p className="body-noresults_text">Intenta con otra palabra</p>
-          </div>
-        </section>
+          })
+        )}
       </section>
     </Container>
   );

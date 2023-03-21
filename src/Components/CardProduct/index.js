@@ -27,7 +27,7 @@ const CardProduct = (props) => {
                 <span className="descriptionProduct-price">
                   $ {props.price}
                 </span>
-                {props.shipping.free_shipping ? (
+                {props.shipping ? (
                   <img
                     src={Shipping}
                     alt="envio gratis"
