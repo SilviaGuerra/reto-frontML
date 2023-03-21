@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+# Este es un proyecto que sirve como test práctico para ingresar al área de front-end de Mercado Libre.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+El proyecto se creo con create-react-app. Se corre con `npm start`.
 
-## Available Scripts
+Se abre en [http://localhost:3000](http://localhost:3000) dentro del navegador.
 
-In the project directory, you can run:
+El sitio del lado del cliente consiste en una barra de búsqueda, un listado de los productos que se buscaron
+y una página que muestre el detalle del producto seleccionado. 
 
-### `npm start`
+Del lado del servidor se usó Express para cambiar la estructura de la API y así poder consumirla del lado del cliente. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Cliente
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Se uso sass para los estilos y el sitio es responsive.
+También se uso react-redux para el manejo del estado y así poder utilizar los datos de una manera más eficiente.
+Se agregó la tipografía `proxima_nova` que descargué de DaFont.
+Se puede ver una vista previa en [https://ml-silviag.netlify.app/](https://ml-silviag.netlify.app/) 
 
-### `npm test`
+## Servidor
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Después de la manipulación de la información se subió a DigitalOcean [https://seashell-app-fpkyl.ondigitalocean.app/](https://seashell-app-fpkyl.ondigitalocean.app/) para que después la pudiera poner del lado del cliente y se pudiera visualizar información en netlify. 
 
-### `npm run build`
+## Deployment
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Si se quiere hacer deploy a Netlify o a Digitalocean sólo es necesario hacer un push a los repositorios a la rama de main
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Pendientes
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Las cosas que me gustaría agregar (y estaré haciendo en las próximas horas) son: 
+- Agregar imagen skeleton para que no haga el parpadeo de imagen en el detalle.
+- Agregar loadings para mostrar que está cargando la información.
+- Mejorar el breadcrumb para la página de inicio y en detalle.
+- Redireccionar el botón de comprar al producto dentro de MeLi.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
