@@ -1,13 +1,42 @@
+
+@font-face {
+  font-family: 'proxima_nova';
+  src: url('../src/assets/fonts/proxima_nova_cond_bold_it-webfont.woff') format('woff');
+  font-weight: 900;
+  font-style: bold;
+
+}
+
+@font-face {
+  font-family: 'proxima_nova';
+  src: url('../src/assets/fonts/proxima_nova_cond_light_it-webfont.woff') format('woff');
+  font-weight: 200;
+  font-style: light;
+
+}
+
+@font-face {
+  font-family: 'proxima_nova';
+  src: url('../src/assets/fonts/proxima_nova_cond_reg-webfont.woff') format('woff');
+  font-weight: 400;
+  font-style: regular;
+}
+
+@font-face {
+  font-family: 'proxima_nova';
+  src: url('../src/assets/fonts/proxima_nova_condensed_semibold-webfont.woff') format('woff');
+  font-weight: 700;
+  font-style: semibold;
+
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'proxima_nova' !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'proxima_nova';
 }
