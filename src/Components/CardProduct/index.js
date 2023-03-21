@@ -25,7 +25,10 @@ const CardProduct = (props) => {
             <Row className="cardProduct-priceCity">
               <Col lg={{ span: 4 }} className="cardProduct-price">
                 <span className="descriptionProduct-price">
-                  $ {props.price}
+                  $ {props.price.amount}
+                  {props.price.decimals !== null
+                    ? `.${props.price.decimals.toString().padStart(2, "0")}`
+                    : null}
                 </span>
                 {props.shipping ? (
                   <img
@@ -35,7 +38,7 @@ const CardProduct = (props) => {
                   />
                 ) : null}
               </Col>
-              <Col lg={{ span: 4, offset: 2 }}>
+              <Col lg={{ span: 4, offset: 4 }}>
                 <span className="descriptionProduct-city">{props.city}</span>
               </Col>
             </Row>

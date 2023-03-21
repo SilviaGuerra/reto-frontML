@@ -36,7 +36,7 @@ const Body = () => {
                 <CardProduct
                   id={element.id}
                   thumbnail={element.picture}
-                  price={element.price.amount}
+                  price={element.price}
                   shipping={element.free_shipping}
                   city={element.address.state_name}
                   titleProduct={element.title}

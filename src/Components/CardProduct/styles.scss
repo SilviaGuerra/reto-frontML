@@ -27,6 +27,8 @@
   &-city {
     font-size: 0.75rem;
     color: #999;
+    // display: flex;
+    // justify-content: flex-end;
   }
   &-shipping {
     width: 8%;
@@ -52,6 +54,12 @@
   .cardProduct {
     &-description {
       padding-left: 1.4375rem;
+    }
+  }
+  .descriptionProduct {
+    &-city {
+      display: flex;
+      justify-content: flex-end;
     }
   }
 }
