@@ -4,10 +4,11 @@
 }
 
 .navbar {
+  padding: 14px 2%;
   &-brand {
     display: flex;
-    justify-content: flex-start;
-    width: 8%;
+    // justify-content: flex-start;
+    width: 27%;
   }
 }
 
@@ -49,18 +50,19 @@
 }
 
 /** MediaQuerys **/
-@media (max-width: 480px) {
+@media (min-width: 500px) {
   .navbar {
     &-brand {
-      width: 24%;
-      background-color: blueviolet;
+      width: 6%;
     }
   }
 }
-// @media (min-height: 600px) {
-//   .navbar {
-//     &-brand {
-//       width: 10%;
-//     }
-//   }
-// }
+@media (min-width: 1440px) {
+  .navbar {
+    &-brand {
+      width: 4%;
+    }
+  }
+}
+
+
