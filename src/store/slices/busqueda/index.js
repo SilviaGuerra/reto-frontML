@@ -5,18 +5,19 @@ export const meliSlice = createSlice({
   name: "busqueda",
   initialState: {
     results: [],
+    details: {},
   },
   reducers: {
-    busqueda: (state, action) => {
-      state.results.push(action.payload);
+    details: (state, action) => {
+      state.details = action.payload;
     },
     resultado: (state, action) => {
-      state.results = [action.payload];
+      state.results = action.payload;
     },
   },
 });
 
-export const { busqueda, resultado } = meliSlice.actions;
+export const { details, resultado } = meliSlice.actions;
 
 export default meliSlice.reducer;
 // let jsonPrueba = {
@@ -652,9 +653,18 @@ export default meliSlice.reducer;
 export const fetchAllproducts = (results) => (dispatch) => {
   // return dispatch(resultado(jsonPruea));
   axios
-    .get(`https://api.mercadolibre.com/sites/MLA/search?q=${results}`)
+    .get(`http://localhost:3000/api/items?q=${results}&limit=4`)
     .then((response) => {
       dispatch(resultado(response.data));
+    })
+    .catch((error) => console.log(error, "error"));
+};
+export const fetchItemDetails = (id) => (dispatch) => {
+  // return dispatch(resultado(jsonPruea));
+  axios
+    .get(`http://localhost:3000/api/items/${id}`)
+    .then((response) => {
+      dispatch(details(response.data));
     })
     .catch((error) => console.log(error, "error"));
 };

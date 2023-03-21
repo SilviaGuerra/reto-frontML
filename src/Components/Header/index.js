@@ -1,12 +1,5 @@
-import React, { useState } from "react";
-import {
-  Row,
-  Container,
-  Form,
-  Navbar,
-  Offcanvas,
-  Button,
-} from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { Row, Col, Container, Form, Navbar, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { fetchAllproducts } from "../../store/slices/busqueda";
 import { Link, useNavigate } from "react-router-dom";
@@ -20,6 +13,12 @@ const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const myParam = urlParams.get("search");
+    dispatch(fetchAllproducts(myParam));
+  }, [dispatch]);
+
   const handleChangeSearch = (e) => {
     e.preventDefault();
     setSearch(e.target.value);
@@ -32,17 +31,6 @@ const Header = () => {
   };
 
   return (
-    // <Container fluid>
-    //   <Row className="justify-content-md-center">
-    //     <Col xs lg="2">
-    //       1 of 3
-    //     </Col>
-    //     <Col md="auto">Variable width content</Col>
-    //     <Col xs lg="2">
-    //       3 of 3
-    //     </Col>
-    //   </Row>
-    // </Container>
     <Container fluid>
       <Row>
         <Navbar bg="light">
@@ -51,63 +39,39 @@ const Header = () => {
             aria-labelledby={`offcanvasNavbarLabel-expand`}
             placement="end"
           >
-            <Offcanvas.Body>
-              <Form className="d-flex">
+            <Row>
+              <Col
+                sm={{ span: 1 }}
+                md={{ span: 1 }}
+                lg={{ span: 1, offset: 1 }}
+              >
                 <Link to="/" className="navbar-brand">
                   <img src={Logo} alt="Logo" width={"100%"} />
                 </Link>
-                <Form.Control
-                  type="search"
-                  placeholder="Nunca dejes de buscar"
-                  aria-label="Search"
-                  onChange={handleChangeSearch}
-                />
-                <Button
-                  variant="outline-success"
-                  type="submit"
-                  onClick={handleResults}
-                >
-                  <img src={SearchIcon} alt="icono búsqueda" />
-                </Button>
-              </Form>
-            </Offcanvas.Body>
+              </Col>
+              <Col sm={{ span: 1 }} md={{ span: 5 }} lg={{ span: 9 }}>
+                <Form className="d-flex">
+                  <Form.Control
+                    type="search"
+                    placeholder="Nunca dejes de buscar"
+                    aria-label="Search"
+                    onChange={handleChangeSearch}
+                  />
+                  <Button
+                    variant="outline-success"
+                    type="submit"
+                    onClick={handleResults}
+                  >
+                    <img src={SearchIcon} alt="icono búsqueda" />
+                  </Button>
+                </Form>
+              </Col>
+            </Row>
           </Navbar.Offcanvas>
         </Navbar>
       </Row>
     </Container>
   );
-  {
-    /* 
-      <Navbar bg="light" className="mb-3">
-        <Container fluid>
-          <Navbar.Brand href="#">Navbar Offcanvas</Navbar.Brand>
-          <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-`} />
-          <Navbar.Offcanvas
-            id={`offcanvasNavbar-expand`}
-            aria-labelledby={`offcanvasNavbarLabel-expand`}
-            placement="end"
-          >
-            <Offcanvas.Header closeButton>
-              <Offcanvas.Title id={`offcanvasNavbarLabel-expand`}>
-                Offcanvas
-              </Offcanvas.Title>
-            </Offcanvas.Header>
-            <Offcanvas.Body>
-              <Form className="d-flex">
-                <Form.Control
-                  type="search"
-                  placeholder="Search"
-                  className="me-2"
-                  aria-label="Search"
-                />
-                <Button variant="outline-success">Search</Button>
-              </Form>
-            </Offcanvas.Body>
-          </Navbar.Offcanvas>
-        </Container>
-      </Navbar>
-     */
-  }
 };
 
 export default Header;
