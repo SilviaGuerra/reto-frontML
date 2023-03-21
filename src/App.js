@@ -15,17 +15,7 @@ function App() {
         <Route path="/" element={<Body />} />
         <Route path="/items" element={<Body />} />
         <Route path="/items/:id" element={<Detail />} />
-        {/* <Route path="*" element={<NotFound />} /> */}
-        {/* {user && (
-          <>
-            <Route path="/table" element={<TableComponent />} />
-            <Route path="/new" element={<Crud />} />
-            <Route path="/edit/:id" element={<Crud />} />
-            <Route path="/simulator" element={<Simulator />} />
-          </>
-        )} */}
       </Routes>
-      {/* <Body /> */}
     </Provider>
   );
 }

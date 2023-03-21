@@ -23,7 +23,9 @@ export default meliSlice.reducer;
 
 export const fetchAllproducts = (results) => (dispatch) => {
   axios
-    .get(`http://localhost:3000/api/items?q=${results}&limit=4`)
+    .get(
+      `https://seashell-app-fpkyl.ondigitalocean.app//api/items?q=${results}&limit=4`
+    )
     .then((response) => {
       dispatch(resultado(response.data));
     })
@@ -31,7 +33,7 @@ export const fetchAllproducts = (results) => (dispatch) => {
 };
 export const fetchItemDetails = (id) => (dispatch) => {
   axios
-    .get(`http://localhost:3000/api/items/${id}`)
+    .get(`https://seashell-app-fpkyl.ondigitalocean.app//api/items/${id}`)
     .then((response) => {
       dispatch(details(response.data));
     })
